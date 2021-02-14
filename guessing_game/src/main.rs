@@ -1,16 +1,14 @@
-use std::io;
 use rand::Rng;
 use std::cmp::Ordering;
+use std::io;
 
 fn main() {
     let secret_number = rand::thread_rng().gen_range(0..101);
-    
     loop {
         println!("Guess the number");
 
         let mut guess = String::new();
 
-        
         // println!("system hacker says: {}", secret_number);
 
         io::stdin()
@@ -23,11 +21,9 @@ fn main() {
                 println!("invalid input");
                 println!();
                 continue;
-            },
+            }
         };
         println!("You guessed {}", guess);
-
-        
 
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("Too small!"),
